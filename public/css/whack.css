@@ -1,0 +1,41 @@
+.gameboard{
+	max-width: 600px;
+	max-height: 700px;
+}
+
+.hole {
+	float: left;
+	border:	2px solid black;
+	height: 150px;
+	width: 30%;
+}
+
+.hole:hover {
+	background-color: #C0DFB3;
+}
+
+.active {
+	background-size: 200px;
+	background-image: url("../img/avocado.jpeg");
+}
+.active:hover {	
+	cursor: url("../img/fork.png");
+}
+#start {
+	border-radius: 15px;
+	margin: 10px;
+}
+
+#score {
+	margin: 10px;
+}
+
+#guacamole{
+	float:right;
+	height: 215px;
+	width: 305px;
+	margin-top:	-250px;
+	margin-right: 250px;
+	background-image: url("../img/guac.jpg");
+}
+
