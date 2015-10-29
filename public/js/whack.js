@@ -1,17 +1,16 @@
 var timer= 30;
 var score = 0;
-var highScore;
+var highScore = 0;
+$("#lose").hide();
 
-$("#start").one('click', function(){
+$("#start").on('click', function(){
 	startGame();
 	$("#start").html("Game Started");
 	$("#guacamole").hide();
-	// if(highScore > 0){
-	// 	$("#highScore").html("High Score: " + highScore);
-	// }
+	
 });
 
-$(".gameboard").on('click', ".active", function(){
+$(".gameboard").one('click', ".active", function(){
 	score+=1;
 	$("#score").html("Score: " + score);
 
@@ -21,8 +20,7 @@ function startGame(){
 	var intervalId = setInterval(function() {
 		$(".timer").html("Timer: " + timer);
 		timer-=1;
-		console.log(timer);
-
+		// disable();
 		if(timer == 0){
 			clearInterval(intervalId);
 			$("#score").html("Score: " + score);
@@ -38,6 +36,8 @@ function startGame(){
 			$(".timer").html("Timer: " + timer);
 			if(score >=20) {
 				$("#guacamole").show();
+			} else {
+				$("#lose").show();
 			}
 			clearInterval(moles);
 			endgame();
@@ -59,12 +59,21 @@ function moleup(padNumber) {
 }
 
 function endgame() {
-	if(score > highScore){
-		highScore= score;
-		$("#highScore").html("High Score: " + highScore);
-		score = 0;	
-	} else {
-		score = 0;
-	}
-}
+	console.log(score);
+		if(score >= highScore){
+			$("#highScore").html("High Score: " + score);	
+			highScore = score;
+			score = 0;
+			// enable();
+		} else {
+			score = 0;
+		}
+} 
 
+// function disable(){
+// 	$("#start").off('click');
+// }
+// function enable(){
+// 	timer;
+// 	$("#start").on('click', startGame);
+// }

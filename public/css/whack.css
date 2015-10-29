@@ -16,10 +16,8 @@
 
 .active {
 	background-size: 200px;
-	background-image: url("../img/avocado.jpeg");
-}
-.active:hover {	
-	cursor: url("../img/fork.png");
+	background-image: url(/img/avocado.jpeg);
+	cursor: url(/img/fork.png), auto;
 }
 #start {
 	border-radius: 15px;
@@ -36,6 +34,10 @@
 	width: 305px;
 	margin-top:	-250px;
 	margin-right: 250px;
-	background-image: url("../img/guac.jpg");
+	background-image: url(/img/guac.jpg);
 }
 
+#lose{
+	font: Arial;
+	font-size: 20px;
+}
