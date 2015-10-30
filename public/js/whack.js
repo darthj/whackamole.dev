@@ -3,14 +3,14 @@ var score = 0;
 var highScore = 0;
 $("#lose").hide();
 
-$("#start").on('click', function(){
+$("#start").one('click', function(){
 	startGame();
 	$("#start").html("Game Started");
 	$("#guacamole").hide();
 	
 });
 
-$(".gameboard").one('click', ".active", function(){
+$(".gameboard").on('click', ".active", function(){
 	score+=1;
 	$("#score").html("Score: " + score);
 
@@ -19,10 +19,10 @@ $(".gameboard").one('click', ".active", function(){
 function startGame(){
 	var intervalId = setInterval(function() {
 		$(".timer").html("Timer: " + timer);
-		timer-=1;
-		// disable();
+		timer-=1; 
 		if(timer == 0){
 			clearInterval(intervalId);
+			// disable();
 			$("#score").html("Score: " + score);
 			}
 		}, 1000);
@@ -64,16 +64,19 @@ function endgame() {
 			$("#highScore").html("High Score: " + score);	
 			highScore = score;
 			score = 0;
-			// enable();
+			$("#score").html("Score: " + score);
 		} else {
 			score = 0;
 		}
 } 
 
+
+
 // function disable(){
 // 	$("#start").off('click');
 // }
 // function enable(){
-// 	timer;
+// 	timer = 10;
 // 	$("#start").on('click', startGame);
+
 // }
